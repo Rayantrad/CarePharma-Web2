@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 import ProductGrid from "../Components/ProductGrid";
-import { ProductsList } from "../Data/ProductsList"; 
+import { ProductsList } from "../Data/ProductsList";
 
 function FavouriteproductsPage() {
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const loadFavorites = () => {
@@ -40,7 +44,9 @@ function FavouriteproductsPage() {
         Go Back
       </button>
 
-      <h1 className="text-3xl font-bold text-blue-700 mb-6 md:text-left text-center">Your Favorites:</h1>
+      <h1 className="text-3xl font-bold text-blue-700 mb-6 md:text-left text-center">
+        Your Favorites:
+      </h1>
 
       {favorites.length === 0 ? (
         <p className="text-gray-600 text-center text-lg">

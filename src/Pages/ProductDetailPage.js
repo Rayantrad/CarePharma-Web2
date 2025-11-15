@@ -6,6 +6,7 @@ import AddToCartPanel from "../Functions/AddToCartPanel";
 import FavoriteButton from "../Components/FavouriteButton";
 
 function ProductDetailPage() {
+
   const { type, id } = useParams();
   const navigate = useNavigate();
 

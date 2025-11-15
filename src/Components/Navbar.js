@@ -64,7 +64,12 @@ const Header = () => {
             <div className="hidden xl:block">
               <div>
                 <div className="flex gap-6 justify-center m-4">
+                  <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/">HomePage</NavLink>
                   <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/Products">Products</NavLink>
+                  <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/blog">Blog</NavLink>
+                  <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/about">About</NavLink>
+                  <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/contactus">Contact-Us</NavLink>
+                  <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600  font-bold underline" : "text-black"}`} to="/services">Services/Features</NavLink>
                 </div>
               </div>
             </div>
@@ -101,7 +106,12 @@ const Header = () => {
       {/* Mobile Menu - Sliding Overlay */}
       <div className={`fixed top-0 left-0 w-64 h-full bg-white shadow-xl z-40 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col p-6 pt-20">
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/" onClick={toggleMenu}>HomePage</NavLink>
           <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/Products" onClick={toggleMenu}>Products</NavLink>
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/blog" onClick={toggleMenu}>Blog</NavLink>
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/about" onClick={toggleMenu}>About</NavLink>
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/contactus" onClick={toggleMenu}>Contact-Us</NavLink>
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/services" onClick={toggleMenu}>Services/Features</NavLink>
         </div>
       </div>
 

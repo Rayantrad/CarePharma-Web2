@@ -2,6 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 
 function CheckOutPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const { user } = useContext(UserContext);
   const [cartItems, setCartItems] = useState([]);
 

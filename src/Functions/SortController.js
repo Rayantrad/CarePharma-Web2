@@ -6,33 +6,11 @@ function SortController({ data, onChange }) {
   const sortedData = useMemo(() => {
     if (!Array.isArray(data)) return [];
 
-    const enriched = data.map((item) => {
-      const key = `pharmaDiscount-${item.id}`;
-      const stored = JSON.parse(localStorage.getItem(key));
-      let discount = 0;
-      let discountedPrice = item.priceInDollar;
-
-      if (stored) {
-        discount = stored.discount;
-        discountedPrice = parseFloat(stored.discountedPrice);
-      } else {
-        discount = Math.floor(Math.random() * 30) + 5;
-        discountedPrice = parseFloat(
-          (item.priceInDollar * (1 - discount / 100)).toFixed(2)
-        );
-        localStorage.setItem(
-          key,
-          JSON.stringify({ discount, discountedPrice })
-        );
-      }
-
-      return { ...item, discountedPrice };
-    });
-
+    const enriched = [...data]; 
     if (sortOption === "priceLow") {
-      enriched.sort((a, b) => a.discountedPrice - b.discountedPrice);
+      enriched.sort((a, b) => a.priceInDollar - b.priceInDollar);
     } else if (sortOption === "priceHigh") {
-      enriched.sort((a, b) => b.discountedPrice - a.discountedPrice);
+      enriched.sort((a, b) => b.priceInDollar - a.priceInDollar);
     } else if (sortOption === "rating") {
       enriched.sort((a, b) => b.rating - a.rating);
     } else if (sortOption === "newest") {

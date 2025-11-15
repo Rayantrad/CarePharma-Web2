@@ -29,7 +29,7 @@ function CartIcon() {
 >
   <GrCart className="w-5 h-5" />
   {cartCount > 0 && (
-    <span className="absolute -top-1.5 -right-2 bg-red-500 text-white text-[9px] font-bold px-[3px] py-[2px] rounded-full shadow-sm leading-none">
+    <span className="absolute -top-1.5 -right-2 bg-red-500 text-white text-[9px] font-bold px-[4px] py-[2px] rounded-full shadow-sm leading-none">
       {cartCount}
     </span>
   )}

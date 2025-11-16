@@ -6,10 +6,9 @@ function CartPage() {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
 
-  
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Load cart from localStorage
   useEffect(() => {
@@ -56,7 +55,6 @@ useEffect(() => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-
       {/* Go Back Button */}
       <button
         onClick={() => navigate(-1)}
@@ -65,9 +63,9 @@ useEffect(() => {
         <FaArrowLeft className="text-xs " />
         Go Back
       </button>
-      <h1 className="text-3xl font-bold text-blue-700 mb-4 md:text-left text-center">Your Cart</h1>
-
-      
+      <h1 className="text-3xl font-bold text-blue-700 mb-4 md:text-left text-center">
+        Your Cart
+      </h1>
 
       {cartItems.length === 0 ? (
         <p className="text-gray-600 text-center text-lg">Your cart is empty.</p>
@@ -92,7 +90,7 @@ useEffect(() => {
                     Quantity: {item.quantity}
                   </p>
                   <p className="text-sm text-gray-500">
-                    Price: ${item.price.toFixed(2)}
+                    Price: ${Number(item.price).toFixed(2)}
                   </p>
                 </div>
               </div>

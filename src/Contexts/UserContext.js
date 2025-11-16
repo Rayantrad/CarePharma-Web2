@@ -14,16 +14,21 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const login = (username, password) => {
-    if (username === "user" && password === "123") {
-      const userData = { username };
-      const pass={ password };
-      setUser(userData);
-      localStorage.setItem("carepharma-user", JSON.stringify(userData));
-      localStorage.setItem("carepharma-pass", JSON.stringify(pass));
-      alert("Login successful");
-      return true;
+    let role = null;
+
+    if (username === "admin" && password === "123") {
+      role = "admin";
+    } else if (username === "user" && password === "123") {
+      role = "user";
+    } else {
+      return false; // invalid credentials
     }
-    return false;
+
+    const userData = { username, role };
+    setUser(userData);
+    localStorage.setItem("carepharma-user", JSON.stringify(userData));
+    alert("Login successful");
+    return true;
   };
 
   const logout = () => {

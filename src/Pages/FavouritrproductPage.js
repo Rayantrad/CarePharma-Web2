@@ -2,36 +2,38 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 import ProductGrid from "../Components/ProductGrid";
-import { ProductsList } from "../Data/ProductsList";
+//import { ProductsList } from "../Data/ProductsList";
+import { useProducts } from '../Contexts/ProductContext'; // ✅ adjust path if needed
 
 function FavouriteproductsPage() {
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
+  const { globalProductList  } = useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    const loadFavorites = () => {
-      const stored = JSON.parse(localStorage.getItem("pharmaFavorites")) || [];
-      const allProducts = ProductsList.data;
+  const loadFavorites = () => {
+    const stored = JSON.parse(localStorage.getItem("pharmaFavorites")) || [];
+    const validFavorites = stored.filter(fav => fav && fav.id && fav.type);
 
-      // ✅ Match stored favorites against full product list
-      const enriched = allProducts.filter((product) =>
-        stored.some((fav) => fav.id === product.id && fav.type === product.type)
-      );
+    const enriched = globalProductList.filter((product) =>
+      validFavorites.some((fav) => fav.id === product.id && fav.type === product.type)
+    );
 
-      setFavorites(enriched);
-    };
+    setFavorites(enriched);
+  };
 
-    loadFavorites();
+  loadFavorites();
 
-    window.addEventListener("favoritesUpdated", loadFavorites);
-    return () => {
-      window.removeEventListener("favoritesUpdated", loadFavorites);
-    };
-  }, []);
+  window.addEventListener("favoritesUpdated", loadFavorites);
+  return () => {
+    window.removeEventListener("favoritesUpdated", loadFavorites);
+  };
+}, [globalProductList]); // ✅ critical fix
+
 
   return (
     <main className="container mx-auto px-4 py-8">

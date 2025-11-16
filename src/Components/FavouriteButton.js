@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+
 function FavoriteButton({ product ,className }) {
   const [isFavorited, setIsFavorited] = useState(false);
 
@@ -20,7 +21,7 @@ function FavoriteButton({ product ,className }) {
         (item) => !(item.id === product.id && item.type === product.type)
       );
     } else {
-      updatedFavorites = [...storedFavorites, product];
+      updatedFavorites = [...storedFavorites, { id: product.id, type: product.type }];
     }
 
     localStorage.setItem("pharmaFavorites", JSON.stringify(updatedFavorites));

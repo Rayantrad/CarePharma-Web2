@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { UserContext } from "../Contexts/UserContext";
+import React from "react";
 import { Navigate, useLocation } from "react-router";
+import { useAuth } from "../Contexts/UserContext";
 
 function ProtectedRoutes({ children, role }) {
-  const { isAuth, user } = useContext(UserContext);
+  const { isAuth, user } = useAuth();
   const location = useLocation();
 
   if (!isAuth) {

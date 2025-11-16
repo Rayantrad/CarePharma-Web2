@@ -1,20 +1,25 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { FaArrowLeft, FaStar } from "react-icons/fa";
-import { ProductsList } from "../Data/ProductsList";
+//import { ProductsList } from "../Data/ProductsList";
 import AddToCartPanel from "../Functions/AddToCartPanel";
 import FavoriteButton from "../Components/FavouriteButton";
+import { useProducts } from '../Contexts/ProductContext'; // ✅ adjust path if needed
 
 function ProductDetailPage() {
 
   const { type, id } = useParams();
   const navigate = useNavigate();
+  const { globalProductList  } = useProducts();
 
   // Find product from static list
-  const allProducts = ProductsList.data;
-  const product = allProducts.find(
-    (item) => item.id === parseInt(id) && item.type === type
-  );
+  //const allProducts = ProductsList.data;
+
+  const product = globalProductList.find(
+  (item) =>
+    String(item.id) === String(id) &&
+    item.type?.toLowerCase() === type?.toLowerCase()
+);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -672,4 +672,4 @@ export const ProductsList = {
       "rating": 3,
     }
   ]
-}
+};

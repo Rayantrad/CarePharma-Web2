@@ -2,10 +2,12 @@ import React, { useEffect, useState, useCallback } from "react";
 import SearchBar from "../Components/SearchBar";
 import SortController from "../Functions/SortController";
 import ProductGrid from "../Components/ProductGrid";
-import { ProductsList } from "../Data/ProductsList";
+//import { ProductsList } from "../Data/ProductsList";
+import { useProducts } from "../Contexts/ProductContext";
 
 function Products() {
-  const allData = ProductsList.data;
+  //const allData = ProductsList.data;
+  const { globalProductList } = useProducts();
   const [selectedType, setSelectedType] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -16,7 +18,7 @@ function Products() {
   }, []);
   
   useEffect(() => {
-    let filtered = [...allData];
+    let filtered = [...globalProductList];
 
     if (selectedType !== "all") {
       filtered = filtered.filter((item) => item.type === selectedType);
@@ -29,7 +31,7 @@ function Products() {
     }
 
     setFilteredProducts(filtered);
-  }, [selectedType, searchTerm]);
+  }, [selectedType, searchTerm, globalProductList]);
 
   const handleSortedChange = useCallback((sorted) => {
     setSortedProducts(sorted);

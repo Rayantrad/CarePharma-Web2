@@ -12,6 +12,7 @@ import Contactus from "./Pages/Contactus";
 import ServicesPage from "./Pages/Services";
 import BlogPage from "./Pages/Blog";
 import AboutPage from "./Pages/About";
+import AdminDashboard from "./Pages/AdminDashboard";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
     children: [{ path: "/", element: <HomePage /> }],
   },
   {
-    path: "/login", element: <Login />,
+    path: "/login",
+    element: <Login />,
   },
   {
     element: (
@@ -33,10 +35,18 @@ const router = createBrowserRouter([
       { path: "/cart", element: <CartPage /> },
       { path: "/checkout", element: <CheckOutPage /> },
       { path: "/favourites", element: <FavouriteproductsPage /> },
-      {path:"/contactus",element:<Contactus/>},
-      {path:"/services",element:<ServicesPage/>},
-      {path:"/blog",element:<BlogPage/>},
-      {path:"/about",element:<AboutPage/>},
+      { path: "/contactus", element: <Contactus /> },
+      { path: "/services", element: <ServicesPage /> },
+      { path: "/blog", element: <BlogPage /> },
+      { path: "/about", element: <AboutPage /> },
+      {
+        path: "/dashboard",
+        element: (
+          <ProtectedRoutes role="admin">
+            <AdminDashboard />
+          </ProtectedRoutes>
+        ),
+      },
     ],
   },
 ]);

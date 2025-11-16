@@ -4,7 +4,7 @@ import { FiSearch } from 'react-icons/fi'; // Feather icon
 function SearchBar({ onSearch }) {
   const handleChange = (e) => {
     const value = e.target.value;
-    if (onSearch) {4
+    if (onSearch) {
       onSearch(value);
     }
   };

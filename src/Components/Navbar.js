@@ -62,7 +62,7 @@ const Header = () => {
                 <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/blog">Blog</NavLink>
                 <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/about">About</NavLink>
                 <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/contactus">Contact-Us</NavLink>
-                <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/services">Services/Features</NavLink>
+                <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/services">Services</NavLink>
                 {isAuth && user?.role === "admin" && (
                   <NavLink className={({ isActive }) => `text-sm font-medium hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-black"}`} to="/dashboard">Dashboard</NavLink>
                 )}
@@ -106,7 +106,7 @@ const Header = () => {
           <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/blog" onClick={toggleMenu}>Blog</NavLink>
           <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/about" onClick={toggleMenu}>About</NavLink>
           <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/contactus" onClick={toggleMenu}>Contact-Us</NavLink>
-          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/services" onClick={toggleMenu}>Services/Features</NavLink>
+          <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/services" onClick={toggleMenu}>Services</NavLink>
           {isAuth && user?.role === "admin" && (
             <NavLink className={({ isActive }) => `py-3 text-lg font-medium border-b border-gray-200 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-bold underline" : "text-gray-800"}`} to="/dashboard" onClick={toggleMenu}>Dashboard</NavLink>
           )}

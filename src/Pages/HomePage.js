@@ -89,7 +89,7 @@ useEffect(() => {
             {/* Right: Image */}
             <div className="relative w-full max-w-md">
               <img
-                src="/doctor1.jpg"
+                src={`${process.env.PUBLIC_URL}/doctor1.jpg`}
                 alt="doctor-photo"
                 className="rounded-2xl w-full object-cover shadow-xl"
               />

@@ -14,43 +14,47 @@ import BlogPage from "./Pages/Blog";
 import AboutPage from "./Pages/About";
 import AdminDashboard from "./Pages/AdminDashboard";
 
-
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      element: <MainLayout />,
+      children: [{ path: "/", element: <HomePage /> }],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      element: (
+        <ProtectedRoutes>
+          <MainLayout />
+        </ProtectedRoutes>
+      ), // Requires login and applies layout
+      children: [
+        { path: "/products", element: <Products /> },
+        { path: "/:type/:id", element: <ProductDetailPage /> },
+        { path: "/cart", element: <CartPage /> },
+        { path: "/checkout", element: <CheckOutPage /> },
+        { path: "/favourites", element: <FavouriteproductsPage /> },
+        { path: "/contactus", element: <Contactus /> },
+        { path: "/services", element: <ServicesPage /> },
+        { path: "/blog", element: <BlogPage /> },
+        { path: "/about", element: <AboutPage /> },
+        {
+          path: "/dashboard",
+          element: (
+            <ProtectedRoutes role="admin">
+              <AdminDashboard />
+            </ProtectedRoutes>
+          ),
+        },
+      ],
+    },
+  ],
   {
-    element: <MainLayout />,
-    children: [{ path: "/", element: <HomePage /> }],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    element: (
-      <ProtectedRoutes>
-        <MainLayout />
-      </ProtectedRoutes>
-    ), // Requires login and applies layout
-    children: [
-      { path: "/products", element: <Products /> },
-      { path: "/:type/:id", element: <ProductDetailPage /> },
-      { path: "/cart", element: <CartPage /> },
-      { path: "/checkout", element: <CheckOutPage /> },
-      { path: "/favourites", element: <FavouriteproductsPage /> },
-      { path: "/contactus", element: <Contactus /> },
-      { path: "/services", element: <ServicesPage /> },
-      { path: "/blog", element: <BlogPage /> },
-      { path: "/about", element: <AboutPage /> },
-      {
-        path: "/dashboard",
-        element: (
-          <ProtectedRoutes role="admin">
-            <AdminDashboard />
-          </ProtectedRoutes>
-        ),
-      },
-    ],
-  },
-]);
+    basename: "/CarePharma-Web2",
+  }
+);
 
 function App() {
   return <RouterProvider router={router} />;

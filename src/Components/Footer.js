@@ -48,7 +48,7 @@ function Footer() {
                 className="flex items-center gap-2 mb-4 text-white cursor-pointer lg:cursor-default lg:pointer-events-none"
                 onClick={() => toggleSection('logo')}
               >
-                <img src="/logo.avif" alt="CarePharma Logo" className="h-11 w-auto" />
+                <img src={`${process.env.PUBLIC_URL}/logo.avif`} alt="CarePharma Logo" className="h-11 w-auto" />
                 <h1 className="text-xl font-bold">CarePharma</h1>
                 <span className="lg:hidden transition-transform duration-300 ml-auto">
                   {openSection === 'logo' ? <IoChevronUp /> : <IoChevronDown />}

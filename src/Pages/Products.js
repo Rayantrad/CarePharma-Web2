@@ -43,7 +43,7 @@ function Products() {
       <section
         className="relative w-full h-[70vh] sm:h-[55vh] flex items-center justify-center bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Pharm.jpeg')",
+          backgroundImage: `url(${process.env.PUBLIC_URL}/Pharm.jpeg)`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-white/20 backdrop-blur-sm"></div>

@@ -45,7 +45,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center border-none">
             <NavLink to="/">
-              <img src="/logo.avif" alt="CarePharma logo" className="h-12 w-auto mr-2" />
+              <img src={`${process.env.PUBLIC_URL}/logo.avif`} alt="CarePharma logo" className="h-12 w-auto mr-2" />
             </NavLink>
             <div>
               <h1 className="text-lg font-bold">CarePharma</h1>

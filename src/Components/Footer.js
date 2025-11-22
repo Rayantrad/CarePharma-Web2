@@ -187,7 +187,7 @@ function Footer() {
         <div className="border-t border-gray-700" />
         <div>
           <div className="flex justify-center py-2 text-center">
-            <span className="text-xs ">© Rayan Trad CarePharma 2025</span>
+            <span className="text-xs ">© Rayan Trad & Sujoud Jamile CarePharma 2025</span>
           </div>
         </div>
       </div>
